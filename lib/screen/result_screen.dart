@@ -47,7 +47,13 @@ const SizedBox(height: 30,),
  const SizedBox(height: 60,),
 
  MaterialButton(onPressed: (){
-  Navigator.push(context, MaterialPageRoute(builder: (context) => const MyHomePage() ));
+
+ Navigator.popUntil(context, (route) => route.isFirst);
+          Navigator.pushReplacement(context, MaterialPageRoute(
+            builder: (context) => MyHomePage()
+          )
+
+  );
  },
  color: Colors.orange,
  elevation: 0.0,

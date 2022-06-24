@@ -107,8 +107,16 @@ int score = 0;
   children: [
 OutlinedButton(
 onPressed: isPress ? index + 1 == question.length ? () {
-Navigator.push(context, MaterialPageRoute(
-  builder: (context) =>  ResultScreen(score), ));
+
+Navigator.popUntil(context, (route) => route.isFirst);
+          Navigator.pushReplacement(context, MaterialPageRoute(
+            builder: (context) => ResultScreen(score)
+          )
+
+  );
+
+// Navigator.push(context, MaterialPageRoute(
+//   builder: (context) =>  ResultScreen(score), ));
   } 
   : (){
     _controller!.nextPage(
